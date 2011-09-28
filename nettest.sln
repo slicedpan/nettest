@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nettest", "nettest\nettest\nettest.csproj", "{A0A18B70-2969-4A51-A74E-86FAE155BD6F}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "nettestContent", "nettest\nettestContent\nettestContent.contentproj", "{DEB50F26-EE59-49CB-AF87-DDCB5E670983}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0A18B70-2969-4A51-A74E-86FAE155BD6F}.Debug|x86.ActiveCfg = Debug|x86
+		{A0A18B70-2969-4A51-A74E-86FAE155BD6F}.Debug|x86.Build.0 = Debug|x86
+		{A0A18B70-2969-4A51-A74E-86FAE155BD6F}.Release|x86.ActiveCfg = Release|x86
+		{A0A18B70-2969-4A51-A74E-86FAE155BD6F}.Release|x86.Build.0 = Release|x86
+		{DEB50F26-EE59-49CB-AF87-DDCB5E670983}.Debug|x86.ActiveCfg = Debug|x86
+		{DEB50F26-EE59-49CB-AF87-DDCB5E670983}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
