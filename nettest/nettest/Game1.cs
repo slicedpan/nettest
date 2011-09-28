@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Net;
 
 namespace nettest
 {
@@ -18,11 +19,15 @@ namespace nettest
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Server server;
+        Client client;
+        SpriteFont sf;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            server = new Server();            
         }
 
         /// <summary>
@@ -46,7 +51,7 @@ namespace nettest
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            sf = Content.Load<SpriteFont>("font");
             // TODO: use this.Content to load your game content here
         }
 
@@ -71,7 +76,14 @@ namespace nettest
                 this.Exit();
 
             // TODO: Add your update logic here
-
+            if (gameTime.TotalGameTime.Seconds > 1)
+            {
+                if (client == null)
+                    client = new Client(new IPEndPoint(IPAddress.Loopback, 8024));
+                client.Update(gameTime);
+            }
+            
+            server.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -82,9 +94,14 @@ namespace nettest
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            if (Keyboard.GetState().IsKeyDown(Keys.A))
+            {
+                int i = 0;
+            }
             // TODO: Add your drawing code here
-
+            spriteBatch.Begin();
+            spriteBatch.DrawString(sf, server.LastText, new Vector2(0, 0), Color.White);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
