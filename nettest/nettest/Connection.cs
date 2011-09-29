@@ -24,7 +24,11 @@ namespace nettest
             _socket = socket;
             _server = server;
             _socket.BeginReceive(buffer, 0, 256, SocketFlags.None, new AsyncCallback(ReceiveData), _socket);
+            _socket.BeginDisconnect(false, new AsyncCallback(Disconnect), null);
         }
-
+        public void Disconnect(IAsyncResult result)
+        {
+            _server.End(this);
+        }
     }
 }
