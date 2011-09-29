@@ -18,7 +18,7 @@ namespace nettest
         int counter = 0;
         bool isConnected = false;
         Timer timer;
-        int attempts = 0;
+        public int attempts = 0;
         public void Connect (IAsyncResult result)
         {
             isConnected = true;
@@ -38,7 +38,7 @@ namespace nettest
         }
         public void TryConnect()
         {
-            _socket.BeginConnect(new IPEndPoint(IPAddress.Loopback, 8024), new AsyncCallback(Connect), _socket);
+            _socket.BeginConnect(new IPEndPoint(IPAddress.Parse("192.168.1.17"), 8024), new AsyncCallback(Connect), _socket);
             if (timer == null)
             {
                 timer = new Timer(new TimerCallback(Retry), timer, 1500, 0);

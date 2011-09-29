@@ -89,7 +89,10 @@ namespace nettest
             }
             if (keyState.IsKeyDown(Keys.A) && !lastState.IsKeyDown(Keys.A))
             {
-                server.Listen();
+                if (!server.isActive)
+                {
+                    server.Listen();
+                }
             }
             if (keyState.IsKeyDown(Keys.Escape) && !lastState.IsKeyDown(Keys.Escape))
             {
@@ -110,6 +113,10 @@ namespace nettest
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             spriteBatch.DrawString(sf, server.LastText, new Vector2(0, 0), Color.White);
+            if (client != null)
+            {
+                spriteBatch.DrawString(sf, String.Format("{0} attempts", client.attempts), new Vector2(0, 20), Color.White);
+            }
             spriteBatch.End();
             base.Draw(gameTime);
         }

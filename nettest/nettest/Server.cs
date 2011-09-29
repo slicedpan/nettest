@@ -12,6 +12,7 @@ namespace nettest
     {
         int portNumber;
         Socket socket;
+        public bool isActive = false;
         List<Socket> sockets = new List<Socket>();
         List<Connection> connections = new List<Connection>();
         public void Accept(IAsyncResult result)
@@ -30,6 +31,7 @@ namespace nettest
         }
         public void Listen()
         {
+            isActive = true;
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socket.Bind(new IPEndPoint(IPAddress.Any, 8024));
             socket.Listen(10);
