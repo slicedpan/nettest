@@ -120,5 +120,9 @@ namespace nettest
             spriteBatch.End();
             base.Draw(gameTime);
         }
+        protected override void EndRun()
+        {
+            client.Disconnect();
+        }
     }
 }
