@@ -14,7 +14,7 @@ namespace nettest
         Socket socket;
         public bool isActive = false;
         List<Socket> sockets = new List<Socket>();
-        List<Connection> connections = new List<Connection>();
+        public List<Connection> connections = new List<Connection>();
         public void Accept(IAsyncResult result)
         {
             Socket s = (Socket)result.AsyncState;

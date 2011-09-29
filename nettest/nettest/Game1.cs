@@ -112,10 +112,13 @@ namespace nettest
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            spriteBatch.DrawString(sf, server.LastText, new Vector2(0, 0), Color.White);
+            for (int i = 0; i < server.connections.Count; ++i)
+            {
+                spriteBatch.DrawString(sf, server.connections[i].lastText, new Vector2(0, 20 * i), Color.White);
+            }            
             if (client != null)
             {
-                spriteBatch.DrawString(sf, String.Format("{0} attempts", client.attempts), new Vector2(0, 20), Color.White);
+                spriteBatch.DrawString(sf, String.Format("{0} attempts", client.attempts), new Vector2(0, 200), Color.White);
             }
             spriteBatch.End();
             base.Draw(gameTime);
