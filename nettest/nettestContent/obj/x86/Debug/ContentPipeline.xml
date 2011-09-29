@@ -7,8 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\users\owen\documents\visual studio 2010\Projects\nettest\nettest\nettest\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2011-09-28T23:00:46.0101977+01:00</Time>
+      <Output>C:\Users\Owen\Documents\Visual Studio 2010\Projects\nettest\nettest\nettest\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2011-09-28T16:05:30+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -16,10 +16,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>c:\users\owen\documents\visual studio 2010\Projects\nettest\nettest\nettestContent\</RootDirectory>
-      <LoggerRootDirectory>c:\users\owen\documents\visual studio 2010\Projects\nettest\nettest\nettest\</LoggerRootDirectory>
-      <IntermediateDirectory>c:\users\owen\documents\visual studio 2010\Projects\nettest\nettest\nettestContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>c:\users\owen\documents\visual studio 2010\Projects\nettest\nettest\nettest\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Owen\Documents\Visual Studio 2010\Projects\nettest\nettest\nettestContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Owen\Documents\Visual Studio 2010\Projects\nettest\nettest\nettest\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Owen\Documents\Visual Studio 2010\Projects\nettest\nettest\nettestContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Owen\Documents\Visual Studio 2010\Projects\nettest\nettest\nettest\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

@@ -8,32 +8,35 @@ using Microsoft.Xna.Framework;
 
 namespace nettest
 {
-    public class Server
+    public class GameServer
     {
         int portNumber;
-        UdpClient udpServer;
         Socket socket;
         List<Socket> sockets = new List<Socket>();
+        List<Connection> connections = new List<Connection>();
         public void Accept(IAsyncResult result)
         {
             Socket s = (Socket)result.AsyncState;
-            sockets.Add(s.EndAccept(result));
+            connections.Add(new Connection(this, s.EndAccept(result)));
+            s.BeginAccept(new AsyncCallback(Accept), s);
         }
-        public Server(int port = 8024)
+        public void End(Connection connectionToEnd)
         {
-            portNumber = port;
+            connections.Remove(connectionToEnd);
+        }
+        public GameServer(int port = 8024)
+        {
+            portNumber = port;            
+        }
+        public void Listen()
+        {
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socket.Bind(new IPEndPoint(IPAddress.Any, 8024));
             socket.Listen(10);
             socket.BeginAccept(new AsyncCallback(Accept), socket); 
         }
-        String lastText = "";
-        public String LastText
-        {
-            get
-            {
-                return lastText;
-            }
-        }
+
+        public String LastText = "";
+
     }
 }

@@ -1,1 +1,2 @@
 c:\users\owen\documents\visual studio 2010\Projects\nettest\nettest\nettestContent\obj\x86\Debug\ResolveAssemblyReference.cache
+U:\Documents\Visual Studio 2010\Projects\slicedpan-nettest-4bb9588\nettest\nettestContent\obj\x86\Debug\ResolveAssemblyReference.cache

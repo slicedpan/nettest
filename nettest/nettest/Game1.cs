@@ -19,15 +19,17 @@ namespace nettest
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Server server;
+        GameServer server;
         Client client;
         SpriteFont sf;
+        KeyboardState lastState;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            server = new Server();            
+            lastState = new KeyboardState();
+            server = new GameServer();            
         }
 
         /// <summary>
@@ -72,6 +74,9 @@ namespace nettest
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
+
+            var keyState = Keyboard.GetState();
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
@@ -82,8 +87,15 @@ namespace nettest
                     client = new Client(new IPEndPoint(IPAddress.Loopback, 8024));
                 client.Update(gameTime);
             }
-            
-            server.Update(gameTime);
+            if (keyState.IsKeyDown(Keys.A) && !lastState.IsKeyDown(Keys.A))
+            {
+                server.Listen();
+            }
+            if (keyState.IsKeyDown(Keys.Escape) && !lastState.IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
+            lastState = Keyboard.GetState();
             base.Update(gameTime);
         }
 
@@ -94,10 +106,7 @@ namespace nettest
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            if (Keyboard.GetState().IsKeyDown(Keys.A))
-            {
-                int i = 0;
-            }
+
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             spriteBatch.DrawString(sf, server.LastText, new Vector2(0, 0), Color.White);
